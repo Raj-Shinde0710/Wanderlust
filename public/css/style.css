@@ -1,0 +1,151 @@
+body{
+    background-color: lightblue;
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.container{
+    flex:1;
+}
+
+.navbar{
+    height: 5rem;
+    background-color: white;
+    flex-shrink: 0;
+}
+.fa-compass{
+    font-size: 2rem;
+    color: #fe424d;
+}
+.nav-link{
+    color: #000000 !important;
+}
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+.f-info-links a:hover{
+    text-decoration:underline;
+    
+}
+.f-info-socials,.f-info-links,.f-info-brand {
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 0.5rem;
+
+}
+
+.f-info{
+    text-align: center;
+    display:flex;
+    background-color: #ebebeb;
+    height: 8rem;
+    flex-direction: column;
+    align-items: space-evenly;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card{
+    margin-bottom: 2rem;
+
+}
+
+.card-img-top{
+  
+    height: 20rem;
+    object-fit: cover !important;
+    border-radius: 1rem !important;
+}
+
+.card-body{
+    padding: 0 !important;
+}
+.card-text{
+    font-weight: 400;
+}
+.listing-link{
+    text-decoration: none;
+   
+}
+.card-img-overlay{
+    opacity:0;
+}
+.card-img-overlay:hover{
+    opacity:0.5;
+    background-color: white;
+
+}
+.add-btn{
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+.show-img{
+    height: 30vh;
+}
+.btns{
+    display: flex;
+    justify-content: space-around;
+}
+.show-card{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.showtitle{
+    text-align: center;
+    padding: 20px;
+    text-decoration: underline;
+}
+.showcentre{
+text-align: center;
+width: 60vw;
+margin: auto;
+}
+.revdiv{
+    text-align: start;
+    border: 2px solid rgb(210, 210, 210);
+    background-color: rgb(210, 210, 210) ;
+    border-radius: 10px;
+    margin: 5px     ;
+    padding: 20px;
+    /* height: 20vh !important; */
+    display: flex; 
+    /* flex-wrap: wrap; */
+    /* overflow:auto;    */
+}
+.revcards{
+    display: flex;
+    justify-content: flex-start;
+    width: 60vw;
+    
+    flex-wrap: wrap;
+}
+
+#map {height: 50vh; width: 50vw; }
+
+.search-input{
+    width: 30rem;
+    padding-left: 10rem;
+}
+.search-button{
+    width: 30rem;
+}
+.search-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   margin: auto ;
+    width: 50vw;
+}
+
+footer{
+    flex-shrink: 0;
+    width: 100%;
+    margin-top: auto;
+}
