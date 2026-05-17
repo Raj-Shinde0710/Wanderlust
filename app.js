@@ -19,17 +19,39 @@ const userRouter = require("./routes/user.js");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
-const dbUrl = process.env.ATLASDB_URL
+const dbUrl = process.env.ATLASDB_URL;
+
+if (!dbUrl) {
+  console.error("ATLASDB_URL is not set in environment. Please set it in .env");
+  process.exit(1);
+}
+
+// Warn if the connection string doesn't include a database name
+try {
+  const urlObj = new URL(dbUrl.replace("mongodb+srv://", "http://"));
+  if (!urlObj.pathname || urlObj.pathname === "/") {
+    console.warn("Warning: your ATLASDB_URL does not include a database name.\nRecommended format: mongodb+srv://user:pass@cluster0.example.mongodb.net/myDatabase?retryWrites=true&w=majority");
+  }
+} catch (e) {
+  // ignore URL parse errors for non-standard strings
+}
+
 main()
   .then(() => {
     console.log("Connected to MongoDB");
   })
   .catch((err) => {
     console.error("Error connecting to MongoDB:", err);
+    console.error(`\nQuick checks:\n- Ensure your current IP is allowed in MongoDB Atlas Network Access (or add 0.0.0.0/0 for testing).\n- Verify credentials and database name in ATLASDB_URL.\n- If you're on a corporate/VPN network, try from a different network (home/mobile) to rule out TLS interception.`);
   });
 
 async function main() {
-  await mongoose.connect(dbUrl);
+  // use explicit options for clearer behavior and timeout
+  await mongoose.connect(dbUrl, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 10000
+  });
 }
 
 app.set("view engine", "ejs");

@@ -111,18 +111,14 @@ margin: auto;
     border: 2px solid rgb(210, 210, 210);
     background-color: rgb(210, 210, 210) ;
     border-radius: 10px;
-    margin: 5px     ;
+    margin: 5px;
     padding: 20px;
-    /* height: 20vh !important; */
-    display: flex; 
-    /* flex-wrap: wrap; */
-    /* overflow:auto;    */
+    width: 18rem;
 }
 .revcards{
     display: flex;
     justify-content: flex-start;
-    width: 60vw;
-    
+    gap: 1rem;
     flex-wrap: wrap;
 }
 
